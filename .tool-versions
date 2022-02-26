@@ -1,0 +1,7 @@
+github-cli 2.5.1
+ruby 3.1.1
+bundler 2.3.8
+cheat 4.2.3
+nodejs 17.6.0
+postgres 14.2
+sqlite 3.38.0

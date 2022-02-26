@@ -1,0 +1,219 @@
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left KP_Left
+set $down KP_Down
+set $up KP_Up
+set $right KP_Right
+
+set $ws workspace number
+
+# Your preferred terminal emulators
+set $term-float alacritty
+
+# Your preferred application launcher
+set $menu wofi -c ~/.config/wofi/config -I
+
+set $powermenu ~/.config/waybar/scripts/power-menu.sh
+
+### Idle configuration
+exec swayidle -w\
+    timeout 1070 'swaylock -f -C ~/.config/swaylock/config'\
+    timeout 770 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -C ~/.config/swaylock/config'
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Floating modifier
+floating_modifier $mod normal
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+
+
+mode "default" {
+  bindsym {
+
+## Lock Screen
+     $mod+f1 exec ~/.config/sway/scripts/lockman.sh
+
+### Key bindings
+
+# Basics:
+    # Start a floating terminal
+     $mod+Return exec $term-float
+
+    # Open the power menu
+     $mod+Shift+e exec $powermenu
+
+    # Kill focused window
+     $mod+q kill
+
+    # Start your launcher
+     $mod+d exec $menu
+
+    # Activities
+     $mod+p exec ~/.config/wofi/windows.py
+
+    # Reload the configuration file
+     $mod+Shift+c reload
+
+	# Resize mode
+	 $mod+r mode "resize"
+
+
+
+# Moving around:
+    # Move your focus around
+     $mod+$left focus left
+     $mod+$down focus down
+     $mod+$up focus up
+     $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+     $mod+Left focus left
+     $mod+Down focus down
+     $mod+Up focus up
+     $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+     $mod+Shift+$left move left
+     $mod+Shift+$down move down
+     $mod+Shift+$up move up
+     $mod+Shift+$right move right
+    # Ditto, with arrow keys
+     $mod+Shift+Left move left
+     $mod+Shift+Down move down
+     $mod+Shift+Up move up
+     $mod+Shift+Right move right
+
+# Workspaces:
+    # Switch to workspace
+     $mod+1 $ws 1
+     $mod+2 $ws 2
+     $mod+3 $ws 3
+     $mod+4 $ws 4
+     $mod+5 $ws 5
+     $mod+6 $ws 6
+     $mod+7 $ws 7
+     $mod+8 $ws 8
+     $mod+9 $ws 9
+     $mod+0 $ws 10
+    # Move focused container to workspace
+     $mod+Shift+1 move container to $ws 1
+     $mod+Shift+2 move container to $ws 2
+     $mod+Shift+3 move container to $ws 3
+     $mod+Shift+4 move container to $ws 4
+     $mod+Shift+5 move container to $ws 5
+     $mod+Shift+6 move container to $ws 6
+     $mod+Shift+7 move container to $ws 7
+     $mod+Shift+8 move container to $ws 8
+     $mod+Shift+9 move container to $ws 9
+     $mod+Shift+0 move container to $ws 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+# Layout stuff:
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+     $mod+b splith
+     $mod+v splitv
+     $mod+Shift+v splitt
+
+    # Switch the current container between different layout styles
+     $mod+s layout stacking
+     $mod+w layout tabbed
+     $mod+e layout toggle split
+     $mod+Shift+s layout toggle stacking tabbed split
+
+    # Make the current focus fullscreen
+     $mod+f fullscreen
+     $mod+Shift+f fullscreen global
+
+    # Toggle the current focus between tiling and floating mode
+     $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+     $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+     $mod+a focus parent
+
+# Scratchpad:
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+     $mod+Shift+grave move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+     $mod+grave scratchpad show
+
+
+# Resize floating windows with mouse scroll:
+     --whole-window --border $mod+button4 resize shrink height 5 px or 5 ppt
+     --whole-window --border $mod+button5 resize grow height 5 px or 5 ppt
+     --whole-window --border $mod+Shift+button4 resize shrink width 5 px or 5 ppt
+     --whole-window --border $mod+Shift+button5 resize grow width 5 px or 5 ppt
+
+
+# Volume
+     --locked XF86AudioRaiseVolume exec pamixer -ui 2
+     --locked XF86AudioLowerVolume exec pamixer -ud 2
+     --locked XF86AudioMute exec pamixer -t
+
+# Player
+     XF86AudioPlay exec playerctl play
+     XF86AudioPause exec playerctl pause
+     XF86AudioNext exec playerctl next
+     XF86AudioPrev exec playerctl previous
+
+# Backlight
+     XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
+     XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
+
+# App shortcuts
+     $mod+n exec thunar
+     $mod+o exec firefox
+
+# Screenshots
+     print exec /usr/share/sway/scripts/grimshot --notify save output
+     Shift+print exec ~/.config/sway/scripts/screenshot.sh
+
+  }
+}
+
+
+
+# Resizing containers:
+mode "resize" {
+bindsym {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+     $left resize shrink width 10px
+     $right resize grow width 10px
+     $up resize shrink height 10px
+     $down resize grow height 10px
+
+    # Ditto, with arrow keys
+     Left resize shrink width 10px
+     Right resize grow width 10px
+     Up resize shrink height 10px
+     Down resize grow height 10px
+
+    # Return to default mode
+     Return mode "default"
+     Escape mode "default"
+  }
+}
+
+
+
