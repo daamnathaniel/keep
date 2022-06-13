@@ -1,0 +1,9 @@
+[user]
+	name = Nathaniel Adam
+	email = daamnathaniel@gmail.com
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/adam/.asdf/installs/github-cli/2.12.1/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/adam/.asdf/installs/github-cli/2.12.1/bin/gh auth git-credential
