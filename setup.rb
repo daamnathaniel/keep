@@ -5,7 +5,7 @@ folders = {Documents: 'f', Pictures: 'f/pictures',  Desktop: 'f/desktop', Videos
 folders.each{|k,v| `mv "#{k}" "#{v}"`}
 
 
-apps = %i[ruby cheat bundler nodejs postgres sqlite]
+apps = %i[ruby cheat bundler nodejs]
 apps.each do |ap|
 	`asdf plugin add "#{ap}"`
 	`asdf install "#{ap}" latest`

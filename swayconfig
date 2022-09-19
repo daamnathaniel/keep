@@ -1,0 +1,355 @@
+### Variable# Logo key. Use Mod1 or Alt.
+set {
+	$mod	Mod4
+	$alt	Mod1
+
+	$left	KP_Left
+	$down	KP_Down
+	$up		KP_Up
+	$right	KP_Right
+
+	$begin  KP_Begin ## KP_5
+	$end	KP_End ## KP_1
+	$prior	KP_Prior ## KP_9
+	$next	KP_Next ## KP_3
+	$home	KP_Home ## KP_7
+
+	$font Lotion 12
+
+	$ws1  	1:1
+	$ws2  	2:2
+	$ws3  	3:3
+	$ws4  	4:4
+	$ws5  	5:5
+	$ws6  	6:6
+	$ws7  	7:7
+	$ws8  	8:8
+
+	$term 	foot
+	$browser firefox
+
+	$dark_wal 	wal --theme random_dark
+	$light_wal 	wal --theme random_light
+
+	$menu 		dmenu_path | rofi -show drun | xargs swaymsg exec --
+	$resize_factor 40px
+	
+	$output_laptop 	eDP-1
+	$output_left	DP-3
+	$output_right 	DP-4
+
+	$wp_right 	~/.config/sway/wp_right.jpg
+	$wp_left 	~/.config/sway/wp_left.jpg
+}
+
+
+exec autotiling
+exec mako
+exec export GTK_OVERLAY_SCROLLING=0
+
+include ~/.cache/wal/colors-sway
+
+
+font $font
+default_orientation auto
+xwayland force
+smart_borders on
+workspace_layout tabbed
+workspace_auto_back_and_forth yes
+mouse_warping container
+# hide_edge_borders both
+focus_follows_mouse yes
+focus_on_window_activation focus
+focus_wrapping workspace
+default_floating_border pixel 2
+floating_modifier $mod normal
+gaps top 4
+gaps inner 10
+
+# Theme colors
+# class                   borderbackgr  text    indic.  child_border
+  client.focused          $co1	$co2 	$co7	$co4 	$co5
+  client.focused_inactive $co2 	$co3 	$co7	$co5 	$co6
+  client.unfocused        $co3 	$co4 	$co7	$co6 	$co7
+  client.urgent           $co4 	$co5 	$co7	$co7 	$co8
+  client.placeholder      $co5 	$co6 	$co7 	$co8 	$co9
+  client.background       $co0
+
+# Output configuration
+  output * 				resolution 	1920x1080
+  output DP-3 			position 	0,0			background	$wp_left fill
+  output DP-4 			position 	1920,0		background	$wp_right fill
+  output eDP-1 			disable
+
+
+bindswitch --reload --locked lid:on output eDP-1 disable
+bindswitch --reload --locked lid:off output eDP-1 enable
+
+
+
+
+
+# Idle configuration
+exec swayidle -w \
+  timeout 300 'swaylock -f -i $wallpaper --effect-blur 10x5 --clock --datestr "%a %d %b %Y" --indicator' \
+  timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+  before-sleep 'swaylock -f -i $wallpaper --effect-blur 10x5 --clock ---datestr "%a %d %b %Y" -indicator'
+
+# Input configuration
+input * {
+  xkb_options caps:shiftlock,numpad:microsoft,shift:both_capslock_cancel,ctrl:nocaps,ctrl:lctrl_meta
+  xkb_layout us
+  # xkb_options ctrl:swapcaps_hyper,numpad:microsoft,shift:both_capslock_cancel
+  }
+
+
+
+
+# Key bindings
+
+bindsym {
+
+	$mod+Escape 	mode $session
+	$mod+Return 	exec $term
+	$mod+d 			exec $menu
+	$mod+b 			exec $browser
+	$mod+Shift+c 	reload
+	$mod+Shift+d 	exec $dark_wal; reload
+	$mod+Shift+l 	exec $light_wal; reload
+
+	# Exit sway (logs you out of your Wayland session)
+	$mod+Shift+e 	exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+	$mod+bar 		output eDP-1 disable
+	$mod+backslash 	output eDP-1 enable
+	$mod+bracketright	output DP_3 enable
+	$mod+braceright		output DP_3 disable
+	$mod+bracketleft	output DP_4 enable
+	$mod+braceleft		output DP_4 disable
+	
+
+
+
+
+	# Highlight windows
+	$mod+$left 		focus left
+	$mod+$down 		focus down
+	$mod+$up		focus up
+	$mod+$right 	focus right
+	$mod+Left 		focus left
+	$mod+Down 		focus down
+	$mod+Up 		focus up
+	$mod+Right 		focus right
+
+	$mod+Shift+Tab 	focus previous
+	$mod+Tab		focus next
+	$mod+a 			focus parent
+	$mod+z 			focus child
+	$mod+space		focus mode_toggle
+
+	$mod+1 			workspace $ws1
+	$mod+2 			workspace $ws2
+	$mod+3 			workspace $ws3
+	$mod+4 			workspace $ws4
+	$mod+5 			workspace $ws5
+	$mod+6 			workspace $ws6
+	$mod+7 			workspace $ws7
+	$mod+8 			workspace $ws8
+	
+	$mod+$next 		workspace next
+	$mod+$prior		workspace prev
+
+
+	# Tiling windows
+	$alt+$left 		move left 10
+	$alt+$down 		move down 10
+	$alt+$up 		move up 10
+	$alt+$right 	move right 10
+	$alt+Left 		move left
+	$alt+Down 		move down
+	$alt+Up 		move up
+	$alt+Right 		move right
+
+
+
+
+	
+
+	# Resizing windows
+	$mod+Control+$left		resize shrink width $resize_factor
+	$mod+Control+$down		resize shrink height $resize_factor
+	$mod+Control+up 		resize grow height $resize_factor
+	$mod+Control+$right		resize grow width $resize_factor
+
+
+	# Moving windows between workspaces
+	$alt+1 		move container to workspace $ws1
+	$alt+2		move container to workspace $ws2
+	$alt+3 		move container to workspace $ws3
+	$alt+4 		move container to workspace $ws4
+	$alt+5 		move container to workspace $ws5
+	$alt+6 		move container to workspace $ws6
+	$alt+7 		move container to workspace $ws7
+	$alt+8 		move container to workspace $ws8
+
+	$alt+grave 		move scratchpad
+	$alt+Shift+$left 	move workspace to output left
+	$alt+Shift+$right 	move workspace to output right 
+
+	# Splitting windows
+	$mod+v				layout toggle split
+	$mod+t 			layout toggle all
+
+	# Window actions
+	$mod+q 			kill
+	$mod+f 			fullscreen
+	$mod+Shift+f 		fullscreen global
+	$mod+Shift+space	floating toggle
+	$mod+grave			scratchpad show
+	$mod+k 			sticky toggle
+
+	# Volume control
+	XF86AudioRaiseVolume  exec pamixer -i 5
+	XF86AudioLowerVolume  exec pamixer -d 5
+	XF86AudioMute         exec pamixer -t
+	}
+
+
+
+
+
+
+
+  bar {
+	swaybar_command 		swaybar 
+	binding_mode_indicator 	yes
+	font 					Lotion
+	height 					50
+	# output 					*
+	# hidden_state 			show
+	mode 					overlay
+	# position 				bottom
+	# separator_symbol 		||
+	# status_edge_padding 	100
+	# status_padding 			100
+	strip_workspace_name 	no
+	strip_workspace_numbers yes
+	wrap_scroll 			yes
+	workspace_buttons 		yes
+	workspace_min_width 	15
+
+	colors {
+							#border bg	 	text
+		focused_workspace 	$co6 	$co7	$co8
+		active_workspace 	$co0 	$co1 	$co2
+	    inactive_workspace 	$co3 	$co4 	$co5
+		urgent_workspace 	$co6 	$co7 	$co8
+		binding_mode 		$co0 	$co1 	$co2
+							#color
+	    background 			$background
+	    statusline 			$co1
+	    separator 			$foreground
+		focused_background 	$focused_background
+		focused_statusline 	$co4
+		focused_separator 	$co5	
+	}
+  }
+
+
+
+
+# include /etc/sway/config.d/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Auth with polkit-gnome:
+# exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/lib/lxpolkit/lxpolkit
+# Desktop notifications
+exec mako
+
+# Network Applet
+exec nm-applet --indicator
+exec autotiling
+
+# GTK3 applications take a long time to start
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+  dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+
+
+
+
+
+
+# 
+# # workspace to displays
+  # workspace 1 output $output_left
+# workspace 2 output $output_left
+# workspace 3 output $output_left
+# workspace 4 output $output_left
+# workspace 5 output $output_left
+# 
+# workspace 6 output $output_right
+# workspace 7 output $output_right
+# workspace 8 output $output_right
+# workspace 9 output $output_right
+# workspace 10 output $output_right
+# 
+
+
+
+
+for_window [title='.'] title_format "<b>%title</b> (%app_id) %class %instance %shell"
+
+# Assign workspaces
+assign [app_id="firefox"] 2
+for_window [app_id="firefox"] focus
+
+assign [class="firefox"] 2
+for_window [class="firefox"] focus
+
+assign [app_id=thunar] 3
+for_window [app_id=thunar] focus
+
+
+# set floating (nontiling) for special apps:
+for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="About"] floating enable
+for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [title="Picture in picture"] floating enable, sticky enable
+for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
+for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+for_window [title="Save File"] floating enable
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
+for_window [app_id="firefox" title="Library"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [app_id="xsensors"] floating enable
+for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="pamac-manager"] floating enable, resize set width 80 ppt height 70 ppt
+for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt height 30 ppt
+
+
+# Inhibit idle
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="Chromium"] inhibit_idle fullscreen
