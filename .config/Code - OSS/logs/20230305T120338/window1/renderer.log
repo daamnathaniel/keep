@@ -1,0 +1,2 @@
+2023-03-05 12:03:41.029 [info] Initial editor state {"filesToOpenOrCreate":[{"fileUri":{"$mid":1,"path":"/home/nathaniel/D/org.fedoraproject.MediaWriter.flatpakref","scheme":"file"},"type":1,"exists":true,"options":{}}],"filesToDiff":[],"filesToMerge":[]}
+2023-03-05 12:03:46.557 [info] [perf] Render performance baseline is 236ms

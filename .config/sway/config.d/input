@@ -12,14 +12,12 @@ input type:touchpad {
 
 # Read `man 5 sway-input` for more information about this section.
 #
-input type:keyboard xkb_layout "us"
+input type:keyboard {
+	xkb_layout "us"
+	xkb_options ctrl:swapcaps,caps:shiftlock,numpad:microsoft
 
+}
 exec_always {
     'swaymsg input type:keyboard xkb_layout "$(localectl status | grep "X11 Layout" | sed -e "s/^.*X11 Layout://")"'
     'swaymsg input type:keyboard xkb_variant "$(localectl status | grep "X11 Variant" | sed -e "s/^.*X11 Variant://")"'
-}
-
-
-input * {
-	xkb_options "caps:shiftlock,numpad:microsoft,shift:both_capslock_cancel,ctrl:nocaps,ctrl:lctrl_meta"	
 }

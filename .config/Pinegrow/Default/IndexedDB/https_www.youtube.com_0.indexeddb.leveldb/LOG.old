@@ -1,0 +1,15 @@
+2023/03/04-19:20:59.522 f3f9 Reusing MANIFEST /home/nathaniel/.config/Pinegrow/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/03/04-19:20:59.522 f3f9 Recovering log #25
+2023/03/04-19:20:59.523 f3f9 Reusing old log /home/nathaniel/.config/Pinegrow/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000025.log 
+2023/03/04-19:21:09.807 f3cc Level-0 table #30: started
+2023/03/04-19:21:09.811 f3cc Level-0 table #30: 15622 bytes OK
+2023/03/04-19:21:09.814 f3cc Delete type=0 #25
+2023/03/04-19:21:09.815 f3cc Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2023/03/04-19:21:09.815 f3cc Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x04\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00p\x02\xbb\xf5jxB\x00\x03\x00\x00\x00\x00\x00\x009@' @ 1169 : 1
+2023/03/04-19:21:09.815 f3cc Compacting 1@1 + 1@2 files
+2023/03/04-19:21:09.819 f3cc Generated table #31@1: 64 keys, 5591 bytes
+2023/03/04-19:21:09.819 f3cc Compacted 1@1 + 1@2 files => 5591 bytes
+2023/03/04-19:21:09.822 f3cc compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/03/04-19:21:09.823 f3cc Delete type=2 #30
+2023/03/04-19:21:09.823 f3cc Delete type=2 #27
+2023/03/04-19:21:09.823 f3cc Manual compaction at level-1 from '\x00\x04\x01\x1f\x04\x03\x01\x03\x00N\x00E\x00W\x03\x00\x00\x00\x00\x00\x00L@\x03\x00p\x02\xbb\xf5jxB\x00\x03\x00\x00\x00\x00\x00\x009@' @ 1169 : 1 .. (end); will stop at (end)

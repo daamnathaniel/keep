@@ -1,0 +1,15 @@
+2023/03/04-19:37:47.362 f82 Reusing MANIFEST /home/nathaniel/.config/Pinegrow/Default/Local Storage/leveldb/MANIFEST-000001
+2023/03/04-19:37:47.363 f82 Recovering log #13
+2023/03/04-19:37:47.364 f82 Reusing old log /home/nathaniel/.config/Pinegrow/Default/Local Storage/leveldb/000013.log 
+2023/03/04-19:38:10.588 fd9 Level-0 table #17: started
+2023/03/04-19:38:10.611 fd9 Level-0 table #17: 21990 bytes OK
+2023/03/04-19:38:10.615 fd9 Delete type=0 #13
+2023/03/04-19:38:10.615 fd9 Compacting 4@0 + 1@1 files
+2023/03/04-19:38:10.639 fd9 Generated table #18@0: 35 keys, 4366 bytes
+2023/03/04-19:38:10.639 fd9 Compacted 4@0 + 1@1 files => 4366 bytes
+2023/03/04-19:38:10.643 fd9 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/03/04-19:38:10.643 fd9 Delete type=2 #17
+2023/03/04-19:38:10.643 fd9 Delete type=2 #12
+2023/03/04-19:38:10.643 fd9 Delete type=2 #7
+2023/03/04-19:38:10.643 fd9 Delete type=2 #14
+2023/03/04-19:38:10.643 fd9 Delete type=2 #9

@@ -5,7 +5,6 @@
 
     // If height property would be not present, it'd be calculated dynamically
     "height": 30,
-    "width" : 10,
 
     "modules-left": [
         "custom/launcher",
@@ -14,20 +13,21 @@
     ],
  
     "modules-center": [
+    	"sway/window",
+		"clock",
+
     ],
 
     "modules-right": [
         "network",
-        "idle_inhibitor",
         "memory",
         "cpu",
         "pulseaudio",
-        "custom/keyboard-layout",
         "battery",
         //"custom/PBPbattery",
         "backlight#icon",
         "backlight#value",
-        "clock",
+		"idle_inhibitor",        
         "tray",
         //"custom/weather",
         "custom/power",
@@ -103,7 +103,7 @@
     "network": {
         "interval": 5,
         "format-wifi": "  {essid} ({signalStrength}%)", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+        "format-ethernet": "  {ifname}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}",
         "on-click": "xfce4-terminal -e 'nmtui'",
@@ -112,7 +112,7 @@
         "interface": "tun0",
         "format": "  {essid} ({signalStrength}%)",
         "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}",
     },
 
     "sway/mode": {
@@ -141,7 +141,7 @@
 
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
+        "format": " {icon} {volume}%",
         "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": " {icon}  {format_source}",
         "format-muted": "婢 {format_source}",
@@ -157,16 +157,16 @@
             "default": [""]
         },
         "on-click": "pavucontrol",
-        "on-scroll-up": "pamixer -ui 2",
-        "on-scroll-down": "pamixer -ud 2",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
     },
 
+    // to use the weather module replace <your_location> with your city or town
+    // note: do not use spaces: new york would be newyork
     "custom/weather": {
-        "exec": "~/.config/waybar/scripts/weather.sh",
-        "format": "{text} {icon}",
+        "exec": "~/.config/waybar/scripts/weather.sh <your_location>", 
         "return-type": "json",
         "interval": 600,
-        "tooltip-format": "{tooltip}"
     },
 
     "tray": {
@@ -195,7 +195,7 @@
 
     "custom/terminal": {
         "format": " ",
-        "on-click": "exec alacritty",
+        "on-click": "exec xfce4-terminal",
         "tooltip": false
     },
 

@@ -1,0 +1,2 @@
+2023-03-05 08:42:46.903 [info] Initial editor state {"filesToOpenOrCreate":[{"fileUri":{"$mid":1,"path":"/home/nathaniel/.archlinux.draft.txt","scheme":"file"},"type":1,"exists":true,"options":{}}],"filesToDiff":[],"filesToMerge":[]}
+2023-03-05 08:42:54.448 [info] [perf] Render performance baseline is 236ms

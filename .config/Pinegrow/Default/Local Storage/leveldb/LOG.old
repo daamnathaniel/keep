@@ -1,0 +1,9 @@
+2023/03/04-19:08:13.034 f27e Reusing MANIFEST /home/nathaniel/.config/Pinegrow/Default/Local Storage/leveldb/MANIFEST-000001
+2023/03/04-19:08:13.036 f27e Recovering log #8
+2023/03/04-19:08:13.038 f27e Reusing old log /home/nathaniel/.config/Pinegrow/Default/Local Storage/leveldb/000008.log 
+2023/03/04-19:10:49.605 f360 Level-0 table #12: started
+2023/03/04-19:10:49.610 f360 Level-0 table #12: 21534 bytes OK
+2023/03/04-19:10:49.614 f360 Delete type=0 #8
+2023/03/04-19:13:56.291 f360 Level-0 table #14: started
+2023/03/04-19:13:56.294 f360 Level-0 table #14: 21620 bytes OK
+2023/03/04-19:13:56.297 f360 Delete type=0 #11

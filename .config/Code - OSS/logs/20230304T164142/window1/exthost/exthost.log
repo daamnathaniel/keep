@@ -1,0 +1,12 @@
+2023-03-04 16:41:47.791 [info] Extension host with pid 55757 started
+2023-03-04 16:41:47.792 [info] Skipping acquiring lock for /home/nathaniel/.config/Code - OSS/User/workspaceStorage/0b86ce97395094a06e22df9fe2ad438c.
+2023-03-04 16:41:48.393 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2023-03-04 16:41:48.393 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2023-03-04 16:41:48.514 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2023-03-04 16:41:48.515 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2023-03-04 16:41:48.840 [info] Eager extensions activated
+2023-03-04 16:41:48.908 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2023-03-04 16:41:48.909 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2023-03-04 16:42:15.669 [info] ExtensionService#_doActivateExtension vscode.html-language-features, startup: false, activationEvent: 'onLanguage:html'
+2023-03-04 18:53:01.371 [info] Extension host terminating: received terminate message from renderer
+2023-03-04 18:53:01.402 [info] Extension host with pid 55757 exiting with code 0

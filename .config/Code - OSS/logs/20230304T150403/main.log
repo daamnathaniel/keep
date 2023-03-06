@@ -1,0 +1,4 @@
+2023-03-04 15:04:04.120 [info] update#ctor - updates are disabled as there is no update URL
+2023-03-04 15:04:07.240 [info] Starting extension host with pid 51727 (fork() took 30 ms).
+2023-03-04 16:41:19.795 [info] Waiting for extension host with pid 51727 to exit.
+2023-03-04 16:41:19.824 [info] Extension host with pid 51727 exited with code: 0, signal: null.

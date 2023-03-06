@@ -1,0 +1,24 @@
+[source]
+name=QEMU Session
+type=libvirt
+uri=qemu+unix:///session
+save-on-quit=true
+
+[display 31ce867e-595a-4014-b83c-e93bb6c833d7]
+access-total-time=112
+
+[display 98e952f2-4d51-4932-bc53-670c79aca01a]
+last-seen-name=Fedora Silverblue Rawhide
+uuid=98e952f2-4d51-4932-bc53-670c79aca01a
+run-in-bg=false
+access-last-time=1678040328297201
+access-ntimes=1
+access-total-time=1179
+
+[display 1d2f38fd-3865-4673-946b-1a542581f9b1]
+last-seen-name=Fedora-i3-Live-x86_64-37-1
+uuid=1d2f38fd-3865-4673-946b-1a542581f9b1
+run-in-bg=true
+access-last-time=1678044072099539
+access-ntimes=2
+access-total-time=1135

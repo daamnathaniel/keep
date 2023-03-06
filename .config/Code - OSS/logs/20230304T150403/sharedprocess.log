@@ -1,0 +1,8 @@
+2023-03-04 15:04:10.206 [info] Starting worker process with pid 51769 (type: fileWatcher, window: 1).
+2023-03-04 15:04:14.722 [warning] No ptyHost heartbeat after 6 seconds
+2023-03-04 15:26:39.047 [info] Getting Manifest... svelte.svelte-vscode
+2023-03-04 15:26:39.203 [info] Installing extension: svelte.svelte-vscode
+2023-03-04 15:28:18.615 [info] Extracted extension to /home/nathaniel/.vscode-oss/extensions/.8f80c392-68ed-4572-9fbf-258b3e7b0f72: svelte.svelte-vscode
+2023-03-04 15:28:18.638 [info] Renamed to /home/nathaniel/.vscode-oss/extensions/svelte.svelte-vscode-107.1.2-universal
+2023-03-04 15:28:18.652 [info] Extracting extension completed. svelte.svelte-vscode
+2023-03-04 15:28:18.703 [info] Extension installed successfully: svelte.svelte-vscode

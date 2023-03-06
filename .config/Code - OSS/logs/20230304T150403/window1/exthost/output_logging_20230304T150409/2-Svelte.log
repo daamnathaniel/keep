@@ -1,0 +1,9 @@
+Initialize language server at  file:///home/nathaniel/my-svelte-project
+Initialize new ts service at  /home/nathaniel/my-svelte-project/jsconfig.json
+Trying to load configs for /home/nathaniel/my-svelte-project
+Loaded config at  /home/nathaniel/my-svelte-project/svelte.config.js
+SnapshotManager File Statistics:
+Project files: 4
+Svelte files: 2
+From node_modules: 0
+Total: 4

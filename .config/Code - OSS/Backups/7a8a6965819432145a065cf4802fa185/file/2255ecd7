@@ -1,0 +1,54 @@
+file:///home/nathaniel/c/portfolio/index.html {"mtime":1677969735290,"ctime":1677969735290,"size":0,"etag":"3a7rk0roo0","orphaned":false,"typeId":""}
+html
+  head
+
+  body
+    .section#home
+      ul.nav
+        li.nav-item
+          a.nav-link.active(aria-current='home' href='#home') home
+        li.nav-item
+          a.nav-link(href='portfolio') portfolio 
+        li.nav-item
+          a.nav-link(href='#experience') experience
+        li.nav-item
+          a.nav-link(href='#testimonials') testimonials
+        li.nav-item
+          a.nav-link(href='#quotes') quotes
+        li.nav-item
+          a.nav-link(href='#about') about        
+        li.nav-item
+          a.nav-link(href='#contact') contact 
+
+
+    .section#portfolio
+      .container-md
+        .row.mx-4.px-3.py-3
+          .col-md-4.col-6
+            .card 
+              .card-body
+                h5.card-title lorem ipsum
+                p.card-text lorem ipsum
+          .col-md-4.col-6
+            .card 
+              .card-body
+                h5.card-title lorem ipsum
+                p.card-text lorem ipsum
+          .col-md-4.col-6
+            .card 
+              .card-body
+                h5.card-title lorem ipsum
+                p.card-text lorem ipsum
+
+
+    .section#experience
+
+    .section#testimonials
+
+    .section#quotes
+
+    .section#about
+
+    .section#contact
+
+
